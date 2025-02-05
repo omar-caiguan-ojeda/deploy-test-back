@@ -46,6 +46,9 @@ import { CatalogoModule } from './catalogo/catologo.module';
         autoLoadEntities: true,
         dropSchema: true,
         synchronize: true, // Solo para desarrollo, no usar en producción
+        ssl: {
+          rejectUnauthorized: false, // Esto permite aceptar el certificado si es auto-firmado o no está verificado por una autoridad
+        },
       }),
     }),
     // JwtModule.register({
