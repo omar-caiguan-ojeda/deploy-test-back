@@ -42,11 +42,17 @@ import { CatalogoModule } from './catalogo/catologo.module';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
+        ssl: true,
+        extra: {
+          ssl: {
+            rejectUnauthorized: false,
+          },
+        },  
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         autoLoadEntities: true,
         dropSchema: true,
         synchronize: true, // Solo para desarrollo, no usar en producción
-        ssl: { require:true , rejectUnauthorized: false }
+        //ssl: { require:true , rejectUnauthorized: false }
       }),
     }),
     // JwtModule.register({
